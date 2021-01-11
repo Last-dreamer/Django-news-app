@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}Home Page{% endblock %}</title>
+
+   <link  rel="stylesheet" type="text/css" href="{% static 'mine.css' %}"/>
+
+   <link  rel="stylesheet" type="text/css" href="{% static 'nav.css' %}"/>
+	<!-- Bootstrap 4 CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bs4/bootstrap.min.css' %}" />
+	<!-- Main Jquery -->
+	<script type="text/javascript" src="{% static 'vendor/jquery.min.js' %}"></script>
+	<!-- Bootstrap Js -->
+	<script type="text/javascript" src="{% static '/vendor/bs4/bootstrap.min.js' %}"></script>
+
+{#   fonts ?#}
+  <link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nova+Slim&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,200&display=swap" rel="stylesheet">
+
+</head>
+<body>
+	<!-- Top News -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+		<div class="container">
+		  <a class="navbar-brand logo" href="/">The Journal</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+		    <ul class="navbar-nav ml-auto">
+		      <li class="nav-item active"  >
+		        <a class="nav-link  header-font nav-active"  href="{% url 'home' %}">Home</a>
+		      </li>
+		      <li class="nav-item " >
+		        <a class="nav-link  header-font" href="{% url 'all' %}">All News</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link header-font" href="{% url 'category' %}">All Categories</a>
+		      </li>
+		    </ul>
+		  </div>
+
+
+
+	  	</div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+<hr/>
+<footer class="text-muted bg-dark p-2 mt-xl-n5">
+  <div class="container ">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="">© Lost Dreamer</p>
+  </div>
+</footer>
+
+
+<script type="text/javascript">
+   $("a").click(function(){
+       $("a").css("background","");
+       $(this).css("background", "black").addClass('active');
+   })
+</script>
+</body>
+</html>

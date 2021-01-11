@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container mt-3 mb-5">
+	<!-- featured news -->
+	<div class="row my-3">
+		<!-- Left -->
+		<div class="col-md-7 ">
+			<div class="card mb-3 shadow-lg  bg-light rounded pop-up-first">
+			  <img src="{{first_news.images.url}}" class="card-img-top" alt="{{ first_news.title }}">
+			  <div class="card-body">
+			    <h5 class="card-title header-font">{{first_news.title}}</h5>
+			    <hr/>
+			  </div>
+                  <p class="card-text "><a href="detail/{{first_news.id}}" class="btn btn-lg btn-primary mt-1 mbtn header-font">Read Full</a></p>
+			</div>
+		</div>
+
+		<!-- Right -->
+		<div class="col-md-5 shadow-sm  bg-light rounded" style="max-height: 580px;  overflow: auto;">
+
+			{% for n in three_news %}
+             <!-- News Box -->
+			 <div class="card card mb-3 shadow-sm  bg-light rounded pop-up-first">
+			   <div class="row ">
+			    <div class="col-md-4">
+					<img src='{{n.images.url}}' class="card-img-bottom img-fluid mine"  alt="{{n.title}}">
+			    </div>
+			    <div class="col-md-8">
+			      <div class="card-body">
+			        <h5 class="card-title header-font">{{n.title}}</h5>
+			        <p class="card-text to-large"><a href="/detail/{{n.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
+			      </div>
+			    </div>
+			  </div>
+			 </div>
+			<hr/>
+          {% endfor %}
+		</div>
+	</div>
+
+
+	<!-- Category Wise News -->
+	{% for category in categories %}
+
+	<h3 class="border-bottom pb-1 header-font">{{category.title}} <a href="/category/{{category.id}}" class="float-right btn btn-sm btn-dark">In this Category</a></h3>
+	<div class="row my-4">
+{#     news_set.all will fetch the contents for a particular category   #}
+		{% for news in category.news_set.all %}
+			{% if forloop.counter < 5 %}
+			<!-- News box -->
+			<div class="col-md-3">
+				<div class="card mb-3 shadow pop-up">
+				<img src="{{ news.images.url }}" class="card-img-top" alt="{{ news.title }} ">
+				<div class="card-body">
+					<h5 class="card-title header-font">{{ news.title }}</h5>
+					<hr/>
+				</div>
+                    <p class="card-text"><a href="/detail/{{ news.id }}" class="btn btn btn-primary mbtn-other">Read Full</a></p>
+				</div>
+			</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+	{% endfor %}
+	<!-- End Single Category -->
+</main>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container mt-3 mb-5">
+	<h3 class="border-bottom pb-1 my-4 header-font">All Categories</h3>
+	<div class="row">
+		<!-- Category Box -->
+		{% for cat in category %}
+		<div class="col-md-4">
+			<div class="card mb-3 shadow pop-up">
+            <img src="{{cat.category_image.url}}" class="card-img-top pop-up"  height="100%" alt="{{cat.title}}">
+			  <div class="card-body">
+			    <h5 class="card-title">{{cat.title}}</h5>
+			    <hr/>
+			    <p class="card-text"><a href="category/{{cat.id}}" class="btn btn-sm btn-primary">All News</a></p>
+			  </div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</main>
+{% endblock %}

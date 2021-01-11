@@ -1,0 +1,83 @@
+.logo {
+    font-size: 40px !important;
+    font-family: 'Hanalei Fill', cursive;;
+}
+
+.nav-active {
+    border-bottom: 1px solid transparent;
+}
+
+.nav-active {
+    border-bottom: 2px solid #fd7e14;
+}
+
+.nav-disactive {
+    border-bottom: 2px solid transparent;
+
+}
+
+.header-font {
+
+    font-family: 'Nova Slim', cursive;;
+}
+
+
+.mine {
+    width: 150% !important;
+    object-fit: cover !important;
+    height: 100% !important;
+
+}
+
+
+
+.pop-up-first:hover {
+
+    background:#c8cbcf !important;
+
+}
+
+.to-large:hover {
+
+    color: black !important;
+    transform: scale(1.1);
+}
+
+
+.pop-up:hover {
+
+    background:#c8cbcf !important;
+    transform: scale(1.1);
+    transition: all .5s ease-in-out !important;
+}
+
+.main-fonts {
+    font-family:  'Exo 2', sans-serif;
+}
+
+.mbtn {
+    padding: 12px 45% 12px 45% !important;
+    font-size: 14px !important;
+
+}
+
+.mbtn:hover {
+    background: #fd7e14 !important;
+}
+
+.mbtn-other {
+    padding: 10px 30% 10px 30% !important;
+    font-size: 23px !important;
+
+}
+
+.mbtn-other:hover {
+    background: #fd7e14 !important;
+}
+.date {
+    margin-left: 20% !important;
+}
+
+.logo:hover {
+  color:#000 !important;
+}
