@@ -7,9 +7,9 @@ def home(request):
     first_news = News.objects.all().order_by('-id').first()
     # first_news = News.objects.first()
 
-    three_news = News.objects.all()[1:4]
+    three_news = News.objects.all().order_by("-add_time")[1:4]
 
-    category = Category.objects.all()[0:5]
+    category = Category.objects.all().order_by('-id')[0:5]
 
     context = {
         'first_news': first_news,
@@ -19,7 +19,7 @@ def home(request):
     return render(request, 'home.html', context)
 
 def allNews(request):
-    news = News.objects.all()
+    news = News.objects.all().order_by("-id")
     context = {
         'all_news': news,
     }
@@ -43,8 +43,8 @@ def detail(request, id):
         messages.success(request, 'comment successfully submitted...')
 
     category = Category.objects.get(id=detail.category.id)
-    related_news = News.objects.filter(category=category).exclude(id=id)
-    comments =  Comments.objects.filter(news=detail, status=True).order_by('-id')
+    related_news = News.objects.filter(category=category).exclude(id=id).order_by("-add_time")
+    comments = Comments.objects.filter(news=detail, status=True).order_by('-id')
     context = {
       'detail': detail,
       'related_news': related_news,
@@ -54,7 +54,7 @@ def detail(request, id):
 
 
 def category(request):
-    category = Category.objects.all()
+    category = Category.objects.all().order_by("-id")
     context = {
      'category': category
     }
@@ -63,7 +63,7 @@ def category(request):
 
 def category_news(request, id):
     category = Category.objects.get(id=id)
-    all_news = News.objects.filter(category=category)
+    all_news = News.objects.filter(category=category).order_by("-add_time")
 
     context = {
         'category': category,

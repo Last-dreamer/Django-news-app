@@ -10,15 +10,16 @@
 			  <div class="card-body">
 			    <h5 class="card-title header-font">{{detail.title}}</h5>
 			    <hr/>
-			    <p class="card-text main-fonts">{{detail.detail}}</p>
-			  </div>
+			    <p class="card-text main-fonts" >{{detail.detail| safe }}</p>
+{#			    <p dangerouslySetInnerHTML={{ __html: detail.detail  }}>{ }</p>#}
+              </div>
 			  <div class="card-footer header-font">
 			   <div class="row ">
                    <div class="col-5">
                        	Category: <a href="/category/{{detail.category.id}}">{{detail.category.title}}</a>
                    </div>
                    <div class="col-6">
-                      Uploaded at : {{ detail.add_time }}
+                     {{ detail.add_time }}
                    </div>
 
                </div>

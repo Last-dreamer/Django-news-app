@@ -1,10 +1,11 @@
 from django.db import models
+from tinymce.models import HTMLField
 
-# Create your models here.
 
 class Category(models.Model):
     title = models.CharField(max_length=200,)
     category_image = models.ImageField(upload_to='images/')
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         #  renaming ..
@@ -19,7 +20,7 @@ class News(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     images = models.ImageField(upload_to='images/', blank=True)
-    detail = models.TextField()
+    detail = HTMLField()
     add_time = models.DateTimeField(auto_now_add=True)
 
 

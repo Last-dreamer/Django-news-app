@@ -45,7 +45,7 @@
 	<h3 class="border-bottom pb-1 header-font">{{category.title}} <a href="/category/{{category.id}}" class="float-right btn btn-sm btn-dark">In this Category</a></h3>
 	<div class="row my-4">
 {#     news_set.all will fetch the contents for a particular category   #}
-		{% for news in category.news_set.all %}
+		{% for news in category.news_set.all reversed %}
 			{% if forloop.counter < 5 %}
 			<!-- News box -->
 			<div class="col-md-3">
