@@ -7,4 +7,4 @@
 
 
 ## demo 
-thejournal.pythonanywhere.com
+https://thejournal.pythonanywhere.com
